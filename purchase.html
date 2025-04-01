@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Inventory Page</title>
+    <title>Purchase Stock</title>
 
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -102,7 +102,73 @@
             <input class="searchBar" type="search" placeholder="Search Product">
             <button class="add-new"><i class="fas fa-search"></i></button>
           </div>
-          </div><br><br>
+          </div>
+          <div class="dropdown-container">
+            <button class="dropdown-button">Stock In</button>
+           <div class="dropdown-content">
+            <button id="stockOutButton">Stock In China Plywood</button><br><br>
+            <button id="stockOutButton2">Stock In Rongtai Plywood</button>
+           </div>
+        </div>
+           <!-- Modal for Stocking Out Sales -->
+<div id="stockOutModal" class="modal">
+  <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2 style="text-align: center; font-size: 22px;">China Plywood Stock In</h2>
+      <form id="stockOutForm">
+          <div class="inputs">
+            <label for="product">Product Name:</label>
+          <input type="text" class="stock-input" id="product" name="product" required>
+          </div>
+          <div class="inputs">
+            <label for="categories">Categories Sold:</label>
+          <input type="text" class="stock-input" id="categories" name="categories" required>
+          </div>
+          <div class="inputs">
+            <label for="color">Colour Sold:</label>
+          <input type="text" class="stock-input" id="color" name="color" required>
+          </div>
+          <div class="inputs">
+            <label for="thickness">Thickness Sold:</label>
+          <input type="text" class="stock-input" id="thickness" name="thickness" required>
+          </div>
+          <div class="inputs">
+            <label for="quantity">Quantity Sold:</label>
+          <input type="number" class="stock-input" id="quantity" name="quantity" required>
+          </div><br>
+          <button class="submit" type="submit">Stock In</button>
+      </form>
+  </div>
+</div>
+<div id="stockOutModal2" class="modal">
+  <div class="modal-content">
+      <span id="closeModal2" class="close">&times;</span>
+      <h2 style="text-align: center; font-size: 22px;">Rongtai Plywood Stock In</h2>
+      <form id="stockOutForm">
+          <div class="inputs">
+            <label for="product">Product Name:</label>
+          <input type="text" class="stock-input" id="product" name="product" required>
+          </div>
+          <div class="inputs">
+            <label for="categories">Categories Sold:</label>
+          <input type="text" class="stock-input" id="categories" name="categories" required>
+          </div>
+          <div class="inputs">
+            <label for="color">Colour Sold:</label>
+          <input type="text" class="stock-input" id="color" name="color" required>
+          </div>
+          <div class="inputs">
+            <label for="thickness">Thickness Sold:</label>
+          <input type="text" class="stock-input" id="thickness" name="thickness" required>
+          </div>
+          <div class="inputs">
+            <label for="quantity">Quantity Sold:</label>
+          <input type="number" class="stock-input" id="quantity" name="quantity" required>
+          </div><br>
+          <button class="submit" type="submit">Stock In</button>
+      </form>
+  </div>
+</div><br><br>
          <div class="table-section">
           <!-- Purchase Stock Table -->
           <table border="1" id="myTable">
@@ -148,6 +214,79 @@
     this.classList.toggle('active');
   });
 });
+// Droping down the Products Option
+// When the button is clicked, toggle the visibility of both dropdowns
+document.querySelector('.dropdown-button').addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent the click event from closing the dropdown immediately
+            let dropdowns = document.querySelectorAll('.dropdown-content');
+            dropdowns.forEach(function(dropdown) {
+                // Toggle display between block and none
+                dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+            });
+        });
+
+        // Close the dropdowns if the user clicks anywhere outside
+        window.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown')) {
+                let dropdowns = document.querySelectorAll('.dropdown-content');
+                dropdowns.forEach(function(dropdown) {
+                    dropdown.style.display = 'none';
+                });
+            }
+        });
+// Stock Out Pop up
+
+// Get the modal and button
+let modal = document.getElementById("stockOutModal");
+let secondModal = document.getElementById("stockOutModal2");
+let btn = document.getElementById("stockOutButton");
+let secondBtn = document.getElementById("stockOutButton2");
+let span = document.getElementById("closeModal");
+let secondSpan = document.getElementById("closeModal2");
+// Open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+secondBtn.onclick = function() {
+    secondModal.style.display = "block";
+}
+
+// Close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+secondSpan.onclick = function() {
+    secondModal.style.display = "none";
+}
+
+// Close the modal if the user clicks outside of the modal
+window.onclick = function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+}
+window.onclick = function(event) {
+    if (event.target === secondModal) {
+        secondModal.style.display = "none";
+    }
+}
+// Handle form submission (e.g., send data to the backend)
+document.getElementById("stockOutForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    // Get form data
+    const item = document.getElementById("item").value;
+    const quantity = document.getElementById("quantity").value;
+    const reason = document.getElementById("reason").value;
+    
+    // You can now send this data to your backend via an API call
+    console.log(`Item: ${item}, Quantity: ${quantity}, Reason: ${reason}`);
+    
+    // Close the modal after submission
+    modal.style.display = "none";
+    secondModal.style.display = "none";
+});
+
   </script>
   </body>
 </html>

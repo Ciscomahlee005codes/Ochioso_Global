@@ -528,6 +528,15 @@ th, td {
       place-content: center;
       font-family: "Montserrat", sans-serif;
       letter-spacing: 1px;
+      position: relative;
+      top: 1rem;
+    }
+    .modal-content {
+      background-color: white;
+      margin: 20% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
     }
     .searchBar{
       padding: 10px 40px;
@@ -537,6 +546,11 @@ th, td {
       color: gray;
       border-bottom-left-radius: 10px;
     }
+    .dropdown-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+  }
     #myTable{
       width: 100%;
      }
@@ -551,11 +565,11 @@ th, td {
       text-align: right;
     }
     #myTable td::before{
-      content: attr(data-table);
-      position: absolute;
-      left: 0;
-      padding-left: 40px;
-      font-size: 14px;
+        content: attr(data-table);
+        display: block;
+        text-align: left;
+          padding-left: 10px;
+        font-size: 14px;
   }
   }
   @media (max-width: 414px) {
@@ -593,14 +607,55 @@ th, td {
       place-content: center;
       font-family: "Montserrat", sans-serif;
       letter-spacing: 1px;
+      position: relative;
+      left: 2rem;
     }
     .header-left{
       font-size: 23px;
+    }
+    .submit{
+      padding: 10px;
+      width: 50%;
+      margin: auto;
+      font-size: 16px;
+      background-color: #4f35a1;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  @media (max-width:360px) {
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+    .stock-input{
+      padding: 10px;
+      width: 90%;
+      display: flex;
+      align-items: center;  
+    }
+    .submit{
+      padding: 10px;
+      width: 50%;
+      margin: auto;
+      font-size: 16px;
+      background-color: #4f35a1;
+      color: white;
+      border: none;
+      cursor: pointer;
     }
   }
   @media (max-width:320px) {
     .header-left{
       font-size: 20px;
+    }
+    .top-headers{
+      display: flex;
+      flex-direction: column;
     }
     .searchBar{
       padding: 10px 30px;
@@ -609,6 +664,26 @@ th, td {
       border: 1.5px solid #4f35a1;
       color: gray;
       border-bottom-left-radius: 10px;
+    }
+    .submit{
+      padding: 10px;
+      width: 50%;
+      margin: auto;
+      font-size: 16px;
+      background-color: #4f35a1;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #date{
+      width: 53%;
+      display: grid;
+      place-content: center;
+      font-family: "Montserrat", sans-serif;
+      letter-spacing: 1px;
+      position: relative;
+      left: 2rem;
+      top: 4rem;
     }
     .add-new{
       padding: 12px 15px;

@@ -128,130 +128,311 @@ select:hover {
        <div class="top-head-1">
          <h3><i class="fa-solid fa-cart-plus"></i> Add Products</h3>
         </div>
-        <div class="add-content">
-         <h4>Register New Product Here</h4>
-          <button class="add-new" onclick="newProductOpen()">+ Add New Product</button>
+        <div class="dropdown-container">
+         <h4>Register New Product</h4>
+         <button class="dropdown-button">+ Add New Product</button>
+         <div class="dropdown-content">
+          <button id="stockOutButton">Add China Plywood</button><br><br>
+          <button id="stockOutButton2">Add Rongtai Plywood</button>
         </div>
         <!-- Pop up for adding New product -->
-        <div class="pop">
-         <div class="newProduct-container">
-    <div class="addNew-popup" id="newProduct-popup">
-        <form action=""> 
-         <i class="fa-solid fa-xmark" onclick="newProductClose()"></i>
-         <h4 style="text-align: center;">New Product</h4>
-          <input class="new-input" type="text"  placeholder="Product Name"><br><br>
-          <input class="new-input" type="text" name="" id="" placeholder="Categories"><br><br>
-          <select name="" id="" style="width: 65%;">
-           <option value="white">Colours</option>
-           <option value="white">WHITE</option>
-<option value="offwhite">OFFWHITE</option>
-<option value="akala">AKALA</option>
-<option value="wenge">WENGE</option>
-<option value="redrose">REDROSE</option>
-<option value="mansonia">MANSONIA</option>
-<option value="brown_mansonia">BROWN MANSONIA</option>
-<option value="pink">PINK</option>
-<option value="orange">ORANGE</option>
-<option value="lemon">LEMON</option>
-<option value="marble_cloud">MARBLE CLOUD</option>
-<option value="marble_white">MARBLE WHITE</option>
-<option value="black_marble_gold">BLACK MARBLE GOLD</option>
-<option value="stripe_wenge">STRIPE WENGE</option>
-<option value="pink_2">PINK</option>
-<option value="grey">GREY</option>
-<option value="dark_grey">DARK GREY</option>
-<option value="red">RED</option>
-<option value="cappuccino">CAPPUCCINO</option>
-<option value="new_akala">NEW AKALA</option>
-<option value="marble_stone">MARBLE STONE</option>
-<option value="yellow_marble">YELLOW MARBLE</option>
-<option value="stripe_ash">STRIPE ASH</option>
-<option value="mipple">MIPPLE</option>
-<option value="purple">PURPLE</option>
-<option value="ceder">CEDER....E.T.C</option>
-<option value="benin_code">BENIN CODE</option>
-          </select><br><br>
-          <input class="new-input" type="number" name="" id="" placeholder="Product Quantity"><br><br>
-          <input class="new-input" type="number" name="" id="" placeholder="Cost Price"><br><br>
-          <input class="new-input" type="number" name="" id="" placeholder="Selling Price"><br><br>
-          <button class="ok-btn" type="button" onclick="newProductClose()">Add Product</button>
-        </form>
-    </div>
- </div>
-       </div>
+        <div id="stockOutModal" class="modal">
+          <div class="modal-content">
+              <span id="closeModal" class="close">&times;</span>
+              <h2 style="text-align: center; font-size: 22px;">Add China Plywood</h2>
+              <form id="stockOutForm">
+                  <div class="inputs">
+                    <label for="product">Product Name:</label>
+                  <input type="text" class="stock-input" id="product" name="product" required>
+                  </div>
+                  <select name="" class="input2" id="categories" style="width: 60%;">
+                    <option value="Categories">Categories</option>
+                    <option value="1/2">1/2</option>
+                    <option value="1/4">1/4</option>
+                    <option value="1/8">1/8</option>
+                    <option value="3/4">3/4</option>
+                  </select>
+                   <select name="" class="input2" id="thickness" style="width: 60%;">
+                    <option value="Thickness">Thickness</option>
+                    <option value="0.5mm">0.5mm</option>
+                    <option value="1mm">1mm</option>
+                    <option value="3mm">3mm</option>
+                    <option value="8mm">8mm</option>
+                    <option value="15mm">15mm</option>
+                    <option value="16mm">16mm</option>
+                    <option value="18mm">18mm</option>
+                   </select>
+                  <select name="" class="input2" id="color" style="width: 60%;">
+                   <option value="white">Colours</option>
+                   <option value="white">WHITE</option>
+               <option value="offwhite">OFFWHITE</option>
+               <option value="akala">AKALA</option>
+               <option value="wenge">WENGE</option>
+               <option value="redrose">REDROSE</option>
+               <option value="mansonia">MANSONIA</option>
+               <option value="brown_mansonia">BROWN MANSONIA</option>
+               <option value="pink">PINK</option>
+               <option value="orange">ORANGE</option>
+               <option value="lemon">LEMON</option>
+               <option value="marble_cloud">MARBLE CLOUD</option>
+               <option value="marble_white">MARBLE WHITE</option>
+               <option value="black_marble_gold">BLACK MARBLE GOLD</option>
+               <option value="stripe_wenge">STRIPE WENGE</option>
+               <option value="pink_2">PINK</option>
+               <option value="grey">GREY</option>
+               <option value="dark_grey">DARK GREY</option>
+               <option value="red">RED</option>
+               <option value="cappuccino">CAPPUCCINO</option>
+               <option value="new_akala">NEW AKALA</option>
+               <option value="marble_stone">MARBLE STONE</option>
+               <option value="yellow_marble">YELLOW MARBLE</option>
+               <option value="stripe_ash">STRIPE ASH</option>
+               <option value="mipple">MIPPLE</option>
+               <option value="purple">PURPLE</option>
+               <option value="ceder">CEDER....E.T.C</option>
+               <option value="benin_code">BENIN CODE</option>
+                  </select>
+                  <div class="inputs">
+                    <label for="quantity">Product Quantity:</label>
+                  <input type="number" class="stock-input" id="quantity" name="quantity" required>
+                  </div><br>
+                  <button class="submit" type="submit">Add Product</button>
+              </form>
+          </div>
+        </div>
+        <div id="stockOutModal2" class="modal">
+          <div class="modal-content">
+              <span id="closeModal2" class="close">&times;</span>
+              <h2 style="text-align: center; font-size: 22px;">Add Rongtai Plywood</h2>
+              <form id="stockOutForm">
+                <div class="inputs">
+                  <label for="product">Product Name:</label>
+                <input type="text" class="stock-input" id="product" name="product" required>
+                </div>
+                <select name="" class="input2" id="categories" style="width: 60%;">
+                  <option value="Categories">Categories</option>
+                  <option value="1/2">1/2</option>
+                  <option value="1/4">1/4</option>
+                  <option value="1/8">1/8</option>
+                  <option value="3/4">3/4</option>
+                </select>
+                 <select name="" class="input2" id="thickness" style="width: 60%;">
+                  <option value="Thickness">Thickness</option>
+                  <option value="0.5mm">0.5mm</option>
+                  <option value="1mm">1mm</option>
+                  <option value="3mm">3mm</option>
+                  <option value="8mm">8mm</option>
+                  <option value="15mm">15mm</option>
+                  <option value="16mm">16mm</option>
+                  <option value="18mm">18mm</option>
+                 </select>
+                <select name="" class="input2" id="color" style="width: 60%;">
+                 <option value="white">Colours</option>
+                 <option value="white">WHITE</option>
+             <option value="offwhite">OFFWHITE</option>
+             <option value="akala">AKALA</option>
+             <option value="wenge">WENGE</option>
+             <option value="redrose">REDROSE</option>
+             <option value="mansonia">MANSONIA</option>
+             <option value="brown_mansonia">BROWN MANSONIA</option>
+             <option value="pink">PINK</option>
+             <option value="orange">ORANGE</option>
+             <option value="lemon">LEMON</option>
+             <option value="marble_cloud">MARBLE CLOUD</option>
+             <option value="marble_white">MARBLE WHITE</option>
+             <option value="black_marble_gold">BLACK MARBLE GOLD</option>
+             <option value="stripe_wenge">STRIPE WENGE</option>
+             <option value="pink_2">PINK</option>
+             <option value="grey">GREY</option>
+             <option value="dark_grey">DARK GREY</option>
+             <option value="red">RED</option>
+             <option value="cappuccino">CAPPUCCINO</option>
+             <option value="new_akala">NEW AKALA</option>
+             <option value="marble_stone">MARBLE STONE</option>
+             <option value="yellow_marble">YELLOW MARBLE</option>
+             <option value="stripe_ash">STRIPE ASH</option>
+             <option value="mipple">MIPPLE</option>
+             <option value="purple">PURPLE</option>
+             <option value="ceder">CEDER....E.T.C</option>
+             <option value="benin_code">BENIN CODE</option>
+                </select>
+                <div class="inputs">
+                  <label for="quantity">Product Quantity:</label>
+                <input type="number" class="stock-input" id="quantity" name="quantity" required>
+                </div><br>
+                <button class="submit" type="submit">Add Product</button>
+            </form>
+          </div>
+        </div>
        <!-- POP UP SECTION ENDS -->
      </div>
-     <div class="add-container">
-      <div class="top-head-1">
-        <h3><i class="fa-solid fa-archive"></i> Update Products</h3>
-       </div>
-       <div class="add-content">
-        <h3><i class="fa-solid fa-box-archive"></i> Update Current Products</h3>
-  <div class="btn-container"><button class="add-new" onclick="updateProductOpen()">+ Update Product</button></div>
-       </div>
-       <!-- Pop up for adding New product -->
-       <div class="pop">
-        <div class="updateProduct-container">
-    <div class="update-popup" id="updateProduct-popup">
-       <form action=""> 
-        <i class="fa-solid fa-xmark" onclick="updateProductClose()"></i>
-        <h4 style="text-align: center; color: black;">Update Product</h4>
-        <select name="Product Name" id="updatedProduct2" style="width: 65%;">
-          <option value="MDF-Wood">MDF Wood</option>
-          <option value="HDF-Wood">HDF Wood</option>
-          <option value="BB-Wood">BB Wood</option>
-          <option value="Marine-Wood">Marine Wood</option>
-          <option value="China-Plywood">China Plywood</option>
-          <option value="Local-Plywood">Local Plywood</option>
-          <option value="Fluted-Panels">Fluted Panels</option>
-          <option value="Door-Skin">Door Skin</option>
-          <option value="Particular-Wood">Particular Wood</option>
-          <option value="Edges-Tape">Edges Tape</option>
-          <option value="Rongtai-MDF">Rongtai MDF</option>
-        </select>
-         <br><br>
-         <input class="new-input" type="text" name="" id="" placeholder="Categories"><br><br>
-         <select name="" id="" style="width: 65%;">
-          <option value="white">Colours</option>
-          <option value="white">WHITE</option>
-    <option value="offwhite">OFFWHITE</option>
-    <option value="akala">AKALA</option>
-    <option value="wenge">WENGE</option>
-    <option value="redrose">REDROSE</option>
-    <option value="mansonia">MANSONIA</option>
-    <option value="brown_mansonia">BROWN MANSONIA</option>
-    <option value="pink">PINK</option>
-    <option value="orange">ORANGE</option>
-    <option value="lemon">LEMON</option>
-    <option value="marble_cloud">MARBLE CLOUD</option>
-    <option value="marble_white">MARBLE WHITE</option>
-    <option value="black_marble_gold">BLACK MARBLE GOLD</option>
-    <option value="stripe_wenge">STRIPE WENGE</option>
-    <option value="pink_2">PINK</option>
-    <option value="grey">GREY</option>
-    <option value="dark_grey">DARK GREY</option>
-    <option value="red">RED</option>
-    <option value="cappuccino">CAPPUCCINO</option>
-    <option value="new_akala">NEW AKALA</option>
-    <option value="marble_stone">MARBLE STONE</option>
-    <option value="yellow_marble">YELLOW MARBLE</option>
-    <option value="stripe_ash">STRIPE ASH</option>
-    <option value="mipple">MIPPLE</option>
-    <option value="purple">PURPLE</option>
-    <option value="ceder">CEDER....E.T.C</option>
-    <option value="benin_code">BENIN CODE</option>
-         </select><br><br>
-         <input class="new-input" type="number" name="" id="" placeholder="Product Quantity"><br><br>
-         <input class="new-input" type="number" name="" id="" placeholder="Cost Price"><br><br>
-         <input class="new-input" type="number" name="" id="" placeholder="Selling Price"><br><br>
-         <button class="ok-btn" type="button" onclick="updateProductClose()">Update Product</button>
-       </form>
-    </div>
-    </div>
-      </div>
-      <!-- POP UP SECTION ENDS -->
-    </div>
      <br><br>
+          </div> 
+
+          <div class="add-container">
+            <div class="top-head-1">
+              <h3><i class="fa-solid fa-archive"></i> Update Products</h3>
+             </div>
+             <div class="dropdown-container">
+              <h4>Update Current Products</h4>
+              <button class="dropdown-button2">Update Product</button>
+              <div class="dropdown-content2">
+               <button id="stockOutButton3">Update China Plywood</button><br><br>
+               <button id="stockOutButton4">Update Rongtai Plywood</button>
+             </div>
+             <!-- Pop up for adding New product -->
+             <div id="stockOutModal3" class="modal">
+               <div class="modal-content">
+                   <span id="closeModal3" class="close">&times;</span>
+                   <h2 style="text-align: center; font-size: 22px;">Update China Plywood</h2>
+                   <form id="stockOutForm">
+                         <select name="Product Name" class="input2" id="updatedProduct2" style="width: 65%;">
+                          <option value="Product-Name">Product Name</option>
+                          <option value="MDF-Wood">MDF Wood</option>
+                          <option value="HDF-Wood">HDF Wood</option>
+                          <option value="BB-Wood">BB Wood</option>
+                          <option value="Marine-Wood">Marine Wood</option>
+                          <option value="China-Plywood">China Plywood</option>
+                          <option value="Local-Plywood">Local Plywood</option>
+                          <option value="Fluted-Panels">Fluted Panels</option>
+                          <option value="Door-Skin">Door Skin</option>
+                          <option value="Particular-Wood">Particular Wood</option>
+                          <option value="Edges-Tape">Edges Tape</option>
+                          <option value="Rongtai-MDF">Rongtai MDF</option>
+                        </select>
+                         <select name="" class="input2" id="categories" style="width: 65%;">
+                          <option value="Categories">Categories</option>
+                          <option value="1/2">1/2</option>
+                          <option value="1/4">1/4</option>
+                          <option value="1/8">1/8</option>
+                          <option value="3/4">3/4</option>
+                        </select>
+                         <select name="" class="input2" id="color" style="width: 65%;">
+                          <option value="white">Colours</option>
+                          <option value="white">WHITE</option>
+                      <option value="offwhite">OFFWHITE</option>
+                      <option value="akala">AKALA</option>
+                      <option value="wenge">WENGE</option>
+                      <option value="redrose">REDROSE</option>
+                      <option value="mansonia">MANSONIA</option>
+                      <option value="brown_mansonia">BROWN MANSONIA</option>
+                      <option value="pink">PINK</option>
+                      <option value="orange">ORANGE</option>
+                      <option value="lemon">LEMON</option>
+                      <option value="marble_cloud">MARBLE CLOUD</option>
+                      <option value="marble_white">MARBLE WHITE</option>
+                      <option value="black_marble_gold">BLACK MARBLE GOLD</option>
+                      <option value="stripe_wenge">STRIPE WENGE</option>
+                      <option value="pink_2">PINK</option>
+                      <option value="grey">GREY</option>
+                      <option value="dark_grey">DARK GREY</option>
+                      <option value="red">RED</option>
+                      <option value="cappuccino">CAPPUCCINO</option>
+                      <option value="new_akala">NEW AKALA</option>
+                      <option value="marble_stone">MARBLE STONE</option>
+                      <option value="yellow_marble">YELLOW MARBLE</option>
+                      <option value="stripe_ash">STRIPE ASH</option>
+                      <option value="mipple">MIPPLE</option>
+                      <option value="purple">PURPLE</option>
+                      <option value="ceder">CEDER....E.T.C</option>
+                      <option value="benin_code">BENIN CODE</option>
+                         </select>
+                         <select name="" class="input2" id="thickness" style="width: 65%;">
+                          <option value="Thickness">Thickness</option>
+                          <option value="0.5mm">0.5mm</option>
+                          <option value="1mm">1mm</option>
+                          <option value="3mm">3mm</option>
+                          <option value="8mm">8mm</option>
+                          <option value="15mm">15mm</option>
+                          <option value="16mm">16mm</option>
+                          <option value="18mm">18mm</option>
+                         </select>
+                       <div class="inputs">
+                         <label for="quantity">Quantity:</label>
+                       <input type="number" class="stock-input" id="quantity" name="quantity" required>
+                       </div><br>
+                       <button class="submit2" type="submit">Update Product</button>
+                   </form>
+               </div>
+             </div>
+             <div id="stockOutModal4" class="modal">
+               <div class="modal-content">
+                   <span id="closeModal4" class="close">&times;</span>
+                   <h2 style="text-align: center; font-size: 22px;">Update Rongtai Plywood</h2>
+                   <form id="stockOutForm">
+                    <select name="Product Name" class="input2" id="updatedProduct2" style="width: 65%;">
+                     <option value="Product-Name">Product Name</option>
+                     <option value="MDF-Wood">MDF Wood</option>
+                     <option value="HDF-Wood">HDF Wood</option>
+                     <option value="BB-Wood">BB Wood</option>
+                     <option value="Marine-Wood">Marine Wood</option>
+                     <option value="China-Plywood">China Plywood</option>
+                     <option value="Local-Plywood">Local Plywood</option>
+                     <option value="Fluted-Panels">Fluted Panels</option>
+                     <option value="Door-Skin">Door Skin</option>
+                     <option value="Particular-Wood">Particular Wood</option>
+                     <option value="Edges-Tape">Edges Tape</option>
+                     <option value="Rongtai-MDF">Rongtai MDF</option>
+                   </select>
+                    <select name="" class="input2" id="categories" style="width: 65%;">
+                     <option value="Categories">Categories</option>
+                     <option value="1/2">1/2</option>
+                     <option value="1/4">1/4</option>
+                     <option value="1/8">1/8</option>
+                     <option value="3/4">3/4</option>
+                   </select>
+                    <select name="" class="input2" id="color" style="width: 65%;">
+                     <option value="white">Colours</option>
+                     <option value="white">WHITE</option>
+                 <option value="offwhite">OFFWHITE</option>
+                 <option value="akala">AKALA</option>
+                 <option value="wenge">WENGE</option>
+                 <option value="redrose">REDROSE</option>
+                 <option value="mansonia">MANSONIA</option>
+                 <option value="brown_mansonia">BROWN MANSONIA</option>
+                 <option value="pink">PINK</option>
+                 <option value="orange">ORANGE</option>
+                 <option value="lemon">LEMON</option>
+                 <option value="marble_cloud">MARBLE CLOUD</option>
+                 <option value="marble_white">MARBLE WHITE</option>
+                 <option value="black_marble_gold">BLACK MARBLE GOLD</option>
+                 <option value="stripe_wenge">STRIPE WENGE</option>
+                 <option value="pink_2">PINK</option>
+                 <option value="grey">GREY</option>
+                 <option value="dark_grey">DARK GREY</option>
+                 <option value="red">RED</option>
+                 <option value="cappuccino">CAPPUCCINO</option>
+                 <option value="new_akala">NEW AKALA</option>
+                 <option value="marble_stone">MARBLE STONE</option>
+                 <option value="yellow_marble">YELLOW MARBLE</option>
+                 <option value="stripe_ash">STRIPE ASH</option>
+                 <option value="mipple">MIPPLE</option>
+                 <option value="purple">PURPLE</option>
+                 <option value="ceder">CEDER....E.T.C</option>
+                 <option value="benin_code">BENIN CODE</option>
+                    </select>
+                    <select name="" class="input2" id="thickness" style="width: 65%;">
+                     <option value="Thickness">Thickness</option>
+                     <option value="0.5mm">0.5mm</option>
+                     <option value="1mm">1mm</option>
+                     <option value="3mm">3mm</option>
+                     <option value="8mm">8mm</option>
+                     <option value="15mm">15mm</option>
+                     <option value="16mm">16mm</option>
+                     <option value="18mm">18mm</option>
+                    </select>
+                  <div class="inputs">
+                    <label for="quantity">Quantity:</label>
+                  <input type="number" class="stock-input" id="quantity" name="quantity" required>
+                  </div><br>
+                  <button class="submit2" type="submit">Update Product</button>
+              </form>
+               </div>
+             </div>
+            <!-- POP UP SECTION ENDS -->
+          </div>
+          <br><br>
+               </div>
           </div>
          <div class="table-section">
           <!-- Inventory Table -->
@@ -289,25 +470,115 @@ select:hover {
     <script src="Js/product.js"></script>
     <!-- Internal Javascript -->
     <script>
-      // Pop Up for Adding New Product
-      let openNewProduct = document.getElementById("newProduct-popup");
- function newProductOpen() {
-    openNewProduct.classList.add("newProduct-openpopup");
- }
- function newProductClose() {
-    openNewProduct.classList.remove("newProduct-openpopup")
- };
+    
+// Droping down the Products Option
+// When the button is clicked, toggle the visibility of both dropdowns
+document.querySelector('.dropdown-button').addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent the click event from closing the dropdown immediately
+            let dropdowns = document.querySelectorAll('.dropdown-content');
+            dropdowns.forEach(function(dropdown) {
+                // Toggle display between block and none
+                dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+            });
+        });
+        // Update Section
+        document.querySelector('.dropdown-button2').addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent the click event from closing the dropdown immediately
+            let dropdowns = document.querySelectorAll('.dropdown-content2');
+            dropdowns.forEach(function(dropdown) {
+                // Toggle display between block and none
+                dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+            });
+        });
 
-  // Pop Up for Updating Current Product
-  let updateProduct = document.getElementById("updateProduct-popup");
- function updateProductOpen() {
-    updateProduct.classList.add("newProduct-openpopup");
- }
- function updateProductClose() {
-    updateProduct.classList.remove("newProduct-openpopup")
- };
+        // Close the dropdowns if the user clicks anywhere outside
+        window.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown')) {
+                let dropdowns = document.querySelectorAll('.dropdown-content');
+                dropdowns.forEach(function(dropdown) {
+                    dropdown.style.display = 'none';
+                });
+            }
+        });
+        // Update Section
+        window.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown')) {
+                let dropdowns = document.querySelectorAll('.dropdown-content2');
+                dropdowns.forEach(function(dropdown) {
+                    dropdown.style.display = 'none';
+                });
+            }
+        });
+// Stock Out Pop up
 
+// Get the modal and button
+let modal = document.getElementById("stockOutModal");
+let secondModal = document.getElementById("stockOutModal2");
+let thirdModal = document.getElementById("stockOutModal3");
+let fourthModal = document.getElementById("stockOutModal4");
+let btn = document.getElementById("stockOutButton");
+let secondBtn = document.getElementById("stockOutButton2");
+let thirdBtn = document.getElementById("stockOutButton3");
+let fourthBtn = document.getElementById("stockOutButton4");
+let span = document.getElementById("closeModal");
+let secondSpan = document.getElementById("closeModal2");
+let thirdSpan = document.getElementById("closeModal3");
+let fourthSpan = document.getElementById("closeModal4");
+// Open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+secondBtn.onclick = function() {
+    secondModal.style.display = "block";
+}
+thirdBtn.onclick = function() {
+    thirdModal.style.display = "block";
+}
+fourthBtn.onclick = function() {
+    fourthModal.style.display = "block";
+}
 
+// Close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+secondSpan.onclick = function() {
+    secondModal.style.display = "none";
+}
+thirdSpan.onclick = function() {
+    thirdModal.style.display = "none";
+}
+fourthSpan.onclick = function() {
+    fourthModal.style.display = "none";
+}
+
+// Close the modal if the user clicks outside of the modal
+window.onclick = function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+}
+window.onclick = function(event) {
+    if (event.target === secondModal) {
+        secondModal.style.display = "none";
+    }
+}
+// Handle form submission (e.g., send data to the backend)
+document.getElementById("stockOutForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    // Get form data
+    const item = document.getElementById("item").value;
+    const quantity = document.getElementById("quantity").value;
+    const reason = document.getElementById("reason").value;
+    
+    // You can now send this data to your backend via an API call
+    console.log(`Item: ${item}, Quantity: ${quantity}, Reason: ${reason}`);
+    
+    // Close the modal after submission
+    modal.style.display = "none";
+    secondModal.style.display = "none";
+});
 
 // Product Link Toggle
 document.querySelectorAll('.sidebar-list-item-1.dropdown').forEach(item => {
@@ -321,4 +592,4 @@ document.querySelectorAll('.sidebar-list-item-1.dropdown').forEach(item => {
 });
     </script>
   </body>
-</html>
+</html

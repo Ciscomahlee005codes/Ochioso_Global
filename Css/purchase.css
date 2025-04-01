@@ -75,8 +75,8 @@ body {
     font-size: 28px;
     color: #246dec;
   }
-  /* ---------- SIDEBAR ---------- */
   
+  /* ---------- SIDEBAR ---------- */
   #sidebar {
     grid-area: sidebar;
     height: 100%;
@@ -184,8 +184,122 @@ body {
     display: inline !important;
     position: absolute;
     z-index: 12 !important;
+  }  
+  .dropdown-container{
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
   }
-  
+  #stockOutButton{
+    padding: 10px 10px;
+    font-size: 16px;
+    /* background-color: #4f35a1; */
+    color: rgb(14, 13, 13);
+    border: none;
+    cursor: pointer;
+  }
+  #stockOutButton:hover{
+    background-color: #6f5dac;
+    color: whitesmoke;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+  }
+  #stockOutButton2{
+    padding: 10px 10px;
+    font-size: 16px;
+    /* background-color: #4f35a1; */
+    color: rgb(14, 13, 13);
+    border: none;
+    cursor: pointer;
+  }
+  #stockOutButton2:hover{
+    background-color: #6f5dac;
+    color: whitesmoke;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+  }
+  /* Stock Out Drop down button */
+  .dropdown-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ac4caf;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+ /* Dropdown container (hidden by default) */
+ .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+  /* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: white;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+}
+#stockOutForm{
+  display: flex;
+  flex-direction: column ;
+  /* justify-content: center;
+  align-items: center; */
+}
+.inputs{
+  margin: auto;
+}
+.stock-input{
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.submit{
+  padding: 10px;
+  width: 30%;
+  margin: auto;
+  font-size: 16px;
+  background-color: #4f35a1;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.submit:hover{
+  background-color: #6f5dac;
+  transition: all 0.4s ease-in-out;
+}
   /* ---------- MAIN ---------- */
   
   .main-container {
@@ -201,6 +315,9 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+  }
+  .colored{
+    background-color: gainsboro;
   }
   button{
     outline: none;
@@ -376,6 +493,10 @@ th, td {
       font-family: "Montserrat", sans-serif;
       letter-spacing: 1px;
     }
+    .dropdown-content {
+      position: relative;
+      left: 0; /* Make dropdowns appear directly below the button */
+  }
   }
   
   /* Extra Small <= 576px */
@@ -389,6 +510,12 @@ th, td {
       display: flex;
       flex-direction: column-reverse;
     }
+    .header-right{
+      visibility: hidden;
+    }
+    .header-left{
+      text-align: center;
+    }
     .side-btn{
       display: flex;
       justify-content: flex-end;
@@ -401,6 +528,15 @@ th, td {
       place-content: center;
       font-family: "Montserrat", sans-serif;
       letter-spacing: 1px;
+      position: relative;
+      top: 1rem;
+    }
+    .modal-content {
+      background-color: white;
+      margin: 20% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
     }
     .searchBar{
       padding: 10px 40px;
@@ -410,12 +546,11 @@ th, td {
       color: gray;
       border-bottom-left-radius: 10px;
     }
-    .header-right{
-      visibility: hidden;
-    }
-    .header-left{
-      text-align: center;
-    }
+    .dropdown-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+  }
     #myTable{
       width: 100%;
      }
@@ -430,11 +565,11 @@ th, td {
       text-align: right;
     }
     #myTable td::before{
-      content: attr(data-table);
-      position: absolute;
-      left: 0;
-      padding-left: 40px;
-      font-size: 14px;
+        content: attr(data-table);
+        display: block;
+        text-align: left;
+          padding-left: 10px;
+        font-size: 14px;
   }
   }
   @media (max-width: 414px) {
@@ -472,14 +607,55 @@ th, td {
       place-content: center;
       font-family: "Montserrat", sans-serif;
       letter-spacing: 1px;
+      position: relative;
+      left: 2rem;
     }
     .header-left{
       font-size: 23px;
+    }
+    .submit{
+      padding: 10px;
+      width: 50%;
+      margin: auto;
+      font-size: 16px;
+      background-color: #4f35a1;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  @media (max-width:360px) {
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+    .stock-input{
+      padding: 10px;
+      width: 90%;
+      display: flex;
+      align-items: center;  
+    }
+    .submit{
+      padding: 10px;
+      width: 50%;
+      margin: auto;
+      font-size: 16px;
+      background-color: #4f35a1;
+      color: white;
+      border: none;
+      cursor: pointer;
     }
   }
   @media (max-width:320px) {
     .header-left{
       font-size: 20px;
+    }
+    .top-headers{
+      display: flex;
+      flex-direction: column;
     }
     .searchBar{
       padding: 10px 30px;
@@ -488,6 +664,26 @@ th, td {
       border: 1.5px solid #4f35a1;
       color: gray;
       border-bottom-left-radius: 10px;
+    }
+    .submit{
+      padding: 10px;
+      width: 50%;
+      margin: auto;
+      font-size: 16px;
+      background-color: #4f35a1;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #date{
+      width: 53%;
+      display: grid;
+      place-content: center;
+      font-family: "Montserrat", sans-serif;
+      letter-spacing: 1px;
+      position: relative;
+      left: 2rem;
+      top: 4rem;
     }
     .add-new{
       padding: 12px 15px;
