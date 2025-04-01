@@ -312,7 +312,7 @@ input{
 #stockOutButton:hover{
   background-color: #6f5dac;
   color: whitesmoke;
-  width: 100%;
+  /* width: 100%; */
   transition: all 0.2s ease-in-out;
 }
 #stockOutButton2{
@@ -326,7 +326,7 @@ input{
 #stockOutButton2:hover{
   background-color: #6f5dac;
   color: whitesmoke;
-  width: 100%;
+  /* width: 100%; */
   transition: all 0.2s ease-in-out;
 }
 #stockOutButton3{
@@ -340,7 +340,7 @@ input{
 #stockOutButton3:hover{
   background-color: #6f5dac;
   color: whitesmoke;
-  width: 100%;
+  /* width: 100%; */
   transition: all 0.2s ease-in-out;
 }
 #stockOutButton4{
@@ -354,7 +354,7 @@ input{
 #stockOutButton4:hover{
   background-color: #6f5dac;
   color: whitesmoke;
-  width: 100%;
+  /* width: 100%; */
   transition: all 0.2s ease-in-out;
 }
 /* Stock Out Drop down button */
@@ -373,7 +373,7 @@ position: absolute;
 background-color: #f1f1f1;
 min-width: 160px;
 box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-z-index: 1;
+
 }
 .dropdown-content2{
   display: none;
@@ -415,11 +415,11 @@ margin: auto;
 }
 .input2{
  margin: 10px auto;
- margin-left: 100px;
+  width: 220px;
   }
 .stock-input{
 padding: 10px;
-width: 100%;
+width: 200px;
 display: flex;
 align-items: center;
 }
@@ -488,7 +488,9 @@ transition: all 0.4s ease-in-out;
   
   /* ---------- MEDIA QUERIES ---------- */
   
-  
+  @media (max-width: 1114px) {
+   
+  }
   /* Medium <= 992px */
   @media screen and (max-width: 992px) {
     .grid-container {
@@ -527,6 +529,13 @@ transition: all 0.4s ease-in-out;
   padding-left: 2rem;
   width: 71%;
  }
+ .modal-content {
+  background-color: white;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  }
  .addNew-popup, .update-popup{
   width: 50%;
 }
@@ -781,6 +790,14 @@ transition: all 0.4s ease-in-out;
   padding-left: 2rem;
   width: 80.5%;
  }
+ .dropdown-content {
+  position: relative;
+  left: 0; /* Make dropdowns appear directly below the button */
+}
+.dropdown-content2 {
+  position: relative;
+  left: 0; /* Make dropdowns appear directly below the button */
+}
   }
   
   /* Extra Small <= 576px */
@@ -795,11 +812,23 @@ transition: all 0.4s ease-in-out;
       padding: 20px;
       width: 85%;
     }
-    .productOne, .productTwo, .productFive, .productSix, .productTen, .productEleven{
-      top: 60%;
-      visibility: visible;
-      transform: translate(-50%, -40%) scale(1);
-    }
+    .modal-content {
+      background-color: white;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 90%;
+      }
+      .submit2, .submit{
+        padding: 10px;
+        width: 45%;
+        margin: auto;
+        font-size: 16px;
+        background-color: #4f35a1;
+        color: white;
+        border: none;
+        cursor: pointer;
+        }
     .top-head-1{
       border-bottom: #4f35a1 2px solid;
       padding-left: 2rem;
